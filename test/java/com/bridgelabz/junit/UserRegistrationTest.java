@@ -11,4 +11,9 @@ class UserRegistrationTest {
         Assertions.assertFalse(UserRegistration.firstName("ullas"));
     }
 
+    @Test
+    void lastName() throws UserRegistrationException {
+        Assertions.assertTrue(UserRegistration.lastName("Kumar"));
+        Assertions.assertFalse(UserRegistration.lastName("kumar"));
+    }
 }
