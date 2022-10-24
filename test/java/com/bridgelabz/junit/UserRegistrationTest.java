@@ -23,4 +23,9 @@ class UserRegistrationTest {
         Assertions.assertFalse(UserRegistration.email("ullas"));
     }
 
+    @Test
+    void phoneNumber() throws UserRegistrationException {
+        Assertions.assertTrue(UserRegistration.phoneNumber("91 1111111111"));
+        Assertions.assertFalse(UserRegistration.phoneNumber("911561561156"));
+    }
 }
