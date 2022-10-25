@@ -57,4 +57,17 @@ public class UserRegistration {
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }
+
+    //method to check password with minimum 8 characters
+    public static boolean passwordRule1(String password) throws UserRegistrationException {
+        if (password == null) {
+            throw new UserRegistrationException(UserRegistrationException.ExceptionType.NULL, " Input can't be Null");
+        } else if (password.length() == 0) {
+            throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY, "Invalid Input");
+        }
+        String regex = "^[0-9a-zA-Z!,@#$&*().]{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
 }
