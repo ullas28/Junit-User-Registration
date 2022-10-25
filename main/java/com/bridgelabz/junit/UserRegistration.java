@@ -83,4 +83,18 @@ public class UserRegistration {
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
+
+    //password should contain at least one number in the password
+    public static boolean passwordRule3(String password) throws UserRegistrationException {
+        if (password == null) {
+            throw new UserRegistrationException(UserRegistrationException.ExceptionType.NULL, " Input can't be Null");
+        } else if (password.length() == 0) {
+            throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY, "Invalid Input");
+        }
+        String regex = "^(?=.*[A-Z]){1}(?=.*[a-z])(?=.*[0-9]).{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+
+    }
 }
